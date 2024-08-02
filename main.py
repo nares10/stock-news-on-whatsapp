@@ -98,14 +98,13 @@ def main():
         return
     
     logging.info(f"Percentage change: {percentage_change:.2f}%")
-    condition = abs(percentage_change) >= 5
     sign = ""
     if percentage_change > 0:
         sign = "+"
     else:
         sign = "-" 
 
-    if True:
+    if abs(percentage_change) >= 5:
         logging.info("Significant change detected. Fetching news...")
         articles = get_news(COMPANY_NAME, yesterday, NEWS_API_KEY)
         for article in articles:
